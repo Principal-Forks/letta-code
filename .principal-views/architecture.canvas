@@ -1,0 +1,302 @@
+{
+  "pv": {
+    "name": "Letta Code Architecture",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "cli",
+      "type": "cli",
+      "x": 299,
+      "y": 107,
+      "width": 140,
+      "height": 80,
+      "color": "#4CAF50",
+      "pv": {
+        "nodeType": "cli",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "components",
+      "type": "components",
+      "x": 250,
+      "y": 220,
+      "width": 140,
+      "height": 80,
+      "color": "#00BCD4",
+      "pv": {
+        "nodeType": "components",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "agent",
+      "type": "agent",
+      "x": 422,
+      "y": 173,
+      "width": 140,
+      "height": 80,
+      "color": "#2196F3",
+      "pv": {
+        "nodeType": "agent",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "subagents",
+      "type": "subagents",
+      "x": 625,
+      "y": 63,
+      "width": 140,
+      "height": 80,
+      "color": "#E91E63",
+      "pv": {
+        "nodeType": "subagents",
+        "shape": "circle"
+      }
+    },
+    {
+      "id": "tools",
+      "type": "tools",
+      "x": 491,
+      "y": 306,
+      "width": 140,
+      "height": 80,
+      "color": "#FF9800",
+      "pv": {
+        "nodeType": "tools",
+        "shape": "hexagon"
+      }
+    },
+    {
+      "id": "permissions",
+      "type": "permissions",
+      "x": 642,
+      "y": 194,
+      "width": 140,
+      "height": 80,
+      "color": "#F44336",
+      "pv": {
+        "nodeType": "permissions",
+        "shape": "diamond"
+      }
+    },
+    {
+      "id": "memory",
+      "type": "memory",
+      "x": 546,
+      "y": 9,
+      "width": 140,
+      "height": 80,
+      "color": "#9C27B0",
+      "pv": {
+        "nodeType": "memory",
+        "shape": "hexagon"
+      }
+    },
+    {
+      "id": "settings",
+      "type": "settings",
+      "x": 690,
+      "y": 120,
+      "width": 140,
+      "height": 80,
+      "color": "#607D8B",
+      "pv": {
+        "nodeType": "settings",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "client",
+      "type": "client",
+      "x": 312,
+      "y": 369,
+      "width": 140,
+      "height": 80,
+      "color": "#795548",
+      "pv": {
+        "nodeType": "client",
+        "shape": "diamond"
+      }
+    },
+    {
+      "id": "filesystem",
+      "type": "filesystem",
+      "x": 706,
+      "y": 326,
+      "width": 140,
+      "height": 80,
+      "color": "#CDDC39",
+      "pv": {
+        "nodeType": "filesystem",
+        "shape": "rectangle"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "cli-to-components",
+      "fromNode": "cli",
+      "toNode": "components",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#3F51B5",
+      "label": "UI rendering"
+    },
+    {
+      "id": "cli-to-agent",
+      "fromNode": "cli",
+      "toNode": "agent",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#4CAF50",
+      "label": "commands"
+    },
+    {
+      "id": "agent-to-cli",
+      "fromNode": "agent",
+      "toNode": "cli",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "responses"
+    },
+    {
+      "id": "agent-to-tools",
+      "fromNode": "agent",
+      "toNode": "tools",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#FF6F00",
+      "label": "execute"
+    },
+    {
+      "id": "tools-to-agent",
+      "fromNode": "tools",
+      "toNode": "agent",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#3F51B5",
+      "label": "results"
+    },
+    {
+      "id": "agent-to-permissions",
+      "fromNode": "agent",
+      "toNode": "permissions",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#D32F2F",
+      "label": "validate"
+    },
+    {
+      "id": "permissions-to-agent",
+      "fromNode": "permissions",
+      "toNode": "agent",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "allowed"
+    },
+    {
+      "id": "agent-to-subagents",
+      "fromNode": "agent",
+      "toNode": "subagents",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#009688",
+      "label": "manage"
+    },
+    {
+      "id": "subagents-to-agent",
+      "fromNode": "subagents",
+      "toNode": "agent",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "status"
+    },
+    {
+      "id": "agent-to-memory",
+      "fromNode": "agent",
+      "toNode": "memory",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#673AB7",
+      "label": "store"
+    },
+    {
+      "id": "memory-to-agent",
+      "fromNode": "memory",
+      "toNode": "agent",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "context"
+    },
+    {
+      "id": "agent-to-settings",
+      "fromNode": "agent",
+      "toNode": "settings",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#607D8B",
+      "label": "config"
+    },
+    {
+      "id": "settings-to-agent",
+      "fromNode": "settings",
+      "toNode": "agent",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "preferences"
+    },
+    {
+      "id": "agent-to-client",
+      "fromNode": "agent",
+      "toNode": "client",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#FF5722",
+      "label": "API"
+    },
+    {
+      "id": "client-to-agent",
+      "fromNode": "client",
+      "toNode": "agent",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#FFC107",
+      "label": "events"
+    },
+    {
+      "id": "tools-to-filesystem",
+      "fromNode": "tools",
+      "toNode": "filesystem",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#009688",
+      "label": "operations"
+    },
+    {
+      "id": "filesystem-to-tools",
+      "fromNode": "filesystem",
+      "toNode": "tools",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "data"
+    },
+    {
+      "id": "permissions-to-tools",
+      "fromNode": "permissions",
+      "toNode": "tools",
+      "fromSide": "bottom",
+      "toSide": "right",
+      "color": "#D32F2F",
+      "label": "check"
+    }
+  ]
+}

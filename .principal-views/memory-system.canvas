@@ -1,0 +1,239 @@
+{
+  "pv": {
+    "name": "Letta Memory System Architecture",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "agent",
+      "type": "agent",
+      "x": 400,
+      "y": 200,
+      "width": 160,
+      "height": 80,
+      "color": "#2196F3",
+      "pv": {
+        "nodeType": "agent",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "memory_core",
+      "type": "memory",
+      "x": 700,
+      "y": 200,
+      "width": 160,
+      "height": 80,
+      "color": "#9C27B0",
+      "pv": {
+        "nodeType": "memory",
+        "shape": "hexagon"
+      }
+    },
+    {
+      "id": "context_memory",
+      "type": "memory",
+      "x": 550,
+      "y": 50,
+      "width": 140,
+      "height": 60,
+      "color": "#E91E63",
+      "pv": {
+        "nodeType": "memory",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "block_memory",
+      "type": "memory",
+      "x": 700,
+      "y": 50,
+      "width": 140,
+      "height": 60,
+      "color": "#FF5722",
+      "pv": {
+        "nodeType": "memory",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "archival_memory",
+      "type": "memory",
+      "x": 850,
+      "y": 50,
+      "width": 140,
+      "height": 60,
+      "color": "#795548",
+      "pv": {
+        "nodeType": "memory",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "message_history",
+      "type": "memory",
+      "x": 1000,
+      "y": 200,
+      "width": 140,
+      "height": 80,
+      "color": "#607D8B",
+      "pv": {
+        "nodeType": "memory",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "tools",
+      "type": "tools",
+      "x": 400,
+      "y": 350,
+      "width": 140,
+      "height": 80,
+      "color": "#FF9800",
+      "pv": {
+        "nodeType": "tools",
+        "shape": "hexagon"
+      }
+    },
+    {
+      "id": "conversation",
+      "type": "data",
+      "x": 100,
+      "y": 200,
+      "width": 140,
+      "height": 80,
+      "color": "#4CAF50",
+      "pv": {
+        "nodeType": "data",
+        "shape": "circle"
+      }
+    },
+    {
+      "id": "memory_manager",
+      "type": "system",
+      "x": 700,
+      "y": 350,
+      "width": 160,
+      "height": 80,
+      "color": "#009688",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "search_index",
+      "type": "system",
+      "x": 1000,
+      "y": 350,
+      "width": 140,
+      "height": 60,
+      "color": "#3F51B5",
+      "pv": {
+        "nodeType": "system",
+        "shape": "diamond"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "agent-to-memory",
+      "fromNode": "agent",
+      "toNode": "memory_core",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#9C27B0",
+      "label": "store/retrieve"
+    },
+    {
+      "id": "memory-context",
+      "fromNode": "memory_core",
+      "toNode": "context_memory",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#E91E63",
+      "label": "active context"
+    },
+    {
+      "id": "memory-block",
+      "fromNode": "memory_core",
+      "toNode": "block_memory",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#FF5722",
+      "label": "structured data"
+    },
+    {
+      "id": "memory-archival",
+      "fromNode": "memory_core",
+      "toNode": "archival_memory",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#795548",
+      "label": "long-term storage"
+    },
+    {
+      "id": "memory-messages",
+      "fromNode": "memory_core",
+      "toNode": "message_history",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#607D8B",
+      "label": "message log"
+    },
+    {
+      "id": "conversation-to-agent",
+      "fromNode": "conversation",
+      "toNode": "agent",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#4CAF50",
+      "label": "user input"
+    },
+    {
+      "id": "agent-to-tools",
+      "fromNode": "agent",
+      "toNode": "tools",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#FF6F00",
+      "label": "memory tools"
+    },
+    {
+      "id": "tools-to-memory",
+      "fromNode": "tools",
+      "toNode": "memory_manager",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#009688",
+      "label": "operations"
+    },
+    {
+      "id": "manager-to-core",
+      "fromNode": "memory_manager",
+      "toNode": "memory_core",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#009688",
+      "label": "manage"
+    },
+    {
+      "id": "memory-to-search",
+      "fromNode": "message_history",
+      "toNode": "search_index",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#3F51B5",
+      "label": "index"
+    },
+    {
+      "id": "search-to-memory",
+      "fromNode": "search_index",
+      "toNode": "memory_manager",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#3F51B5",
+      "label": "search results"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+version: "1.0.0"
+name: "Letta Code Architecture Library"
+
+nodeComponents:
+  cli:
+    description: "Command-line interface and user interaction layer"
+    defaultLabel: "CLI"
+    color: "#4CAF50"
+    shape: "rounded"
+    
+  agent:
+    description: "Core agent functionality and management"
+    defaultLabel: "Agent Core"
+    color: "#2196F3"
+    shape: "rectangle"
+    
+  tools:
+    description: "Tool execution and management framework"
+    defaultLabel: "Tools"
+    color: "#FF9800"
+    shape: "hexagon"
+    
+  permissions:
+    description: "Security and permission management"
+    defaultLabel: "Permissions"
+    color: "#F44336"
+    shape: "diamond"
+    
+  memory:
+    description: "Agent memory and context management"
+    defaultLabel: "Memory"
+    color: "#9C27B0"
+    shape: "cylinder"
+    
+  settings:
+    description: "Configuration and settings management"
+    defaultLabel: "Settings"
+    color: "#607D8B"
+    shape: "rectangle"
+    
+  client:
+    description: "External API client for Letta services"
+    defaultLabel: "API Client"
+    color: "#795548"
+    shape: "cloud"
+    
+  subagents:
+    description: "Subagent coordination and management"
+    defaultLabel: "Subagents"
+    color: "#E91E63"
+    shape: "ellipse"
+    
+  components:
+    description: "React-based terminal UI components"
+    defaultLabel: "UI Components"
+    color: "#00BCD4"
+    shape: "rounded"
+    
+  filesystem:
+    description: "File operations and management"
+    defaultLabel: "File System"
+    color: "#CDDC39"
+    shape: "folder"
+    
+  data:
+    description: "Data storage and retrieval"
+    defaultLabel: "Data"
+    color: "#4CAF50"
+    shape: "circle"
+    
+  system:
+    description: "System components and managers"
+    defaultLabel: "System"
+    color: "#009688"
+    shape: "rectangle"
+
+edgeComponents:
+  api_call:
+    description: "External API communication"
+    color: "#FF5722"
+    style: "dashed"
+    directed: true
+    animation: "flow"
+    
+  data_flow:
+    description: "Data transfer between components"
+    color: "#3F51B5"
+    style: "solid"
+    directed: true
+    
+  command:
+    description: "Command execution flow"
+    color: "#009688"
+    style: "solid"
+    directed: true
+    
+  event:
+    description: "Event-driven communication"
+    color: "#FFC107"
+    style: "dotted"
+    directed: true
+    animation: "pulse"
+    
+  permission_check:
+    description: "Security validation flow"
+    color: "#D32F2F"
+    style: "solid"
+    directed: true
+    
+  state_update:
+    description: "Component state modification"
+    color: "#673AB7"
+    style: "solid"
+    directed: true
+    
+  tool_execution:
+    description: "Tool invocation and execution"
+    color: "#FF6F00"
+    style: "solid"
+    directed: true
+    animation: "flow"
+    
+  user_input:
+    description: "User interaction and response"
+    color: "#4CAF50"
+    style: "solid"
+    directed: true

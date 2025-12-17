@@ -1,3 +1,6 @@
 #!/usr/bin/env sh
 # Run the same checks as CI to ensure parity
 bun run check
+
+# Run principal view linting
+npx @principal-ai/principal-view-cli lint --quiet
